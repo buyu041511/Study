@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="date" name="d" id="d" value="" />
+		
+		<script >
+			var d =document.getElementById("d")
+			var nw = confirm('女王请点击')
+			console.log(nw)
+			d.oninput=function(){
+				alert(d.value)
+			}
+			
+			
+		</script>
+	</body>
+</html>

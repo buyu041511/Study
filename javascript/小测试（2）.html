@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<input type="text" name="" id="in1" value="" />
+	
+	<button id="btn">试试</button>	
+	<div id="show"></div>
+		<script type="text/javascript">
+			var  in1 = document.getElementById('in1')
+		
+			var btn = document.getElementById('btn')
+			var show = document.getElementById('show')
+			
+			btn.onclick=function(){
+				if(in1.value<=5){
+					alert("免单")
+				} else if(in1.value>=80){
+					alert("八折优惠")
+				}else{
+					alert("不白吃")
+				}
+				
+				
+			}
+			
+			
+			
+		</script>	
+		
+		
+		
+	</body>
+</html>
