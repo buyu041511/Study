@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#mydiv{
+				width: 300px;
+				height: 30px;
+				border: 1px solid black;
+			}
+			#a{
+				width: 0;
+				height: 30px;
+				background-color: orangered;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mydiv">
+			<div id="a">
+				
+			</div>
+		</div>
+		<script>
+			var jindu=document.getElementById('a');
+			var mydiv=document.getElementById('mydiv');
+			var timer=null;
+			var num=0;
+//			timer=setInterval(function(){
+//			 
+//			 if (num>100) {
+//			 	clearInterval(timer)
+//			 } else{
+//			 	jindu.style.width=num+'%';
+//			 }
+//			},100);
+			
+			mydiv.onclick=function(e){
+				num++;
+				num=(e.clientX-jindu.offsetLeft)/mydiv.clientWidth*100
+				console.log(num)
+				jindu.style.width=num+'%';
+			}
+		</script>
+	</body>
+<ml>

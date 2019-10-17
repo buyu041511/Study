@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--创建一个登陆页面,含用户名和密码
+			登陆后验证密码必须为123,否则弹出登陆失败
+			登陆后跳转到另一个页面,页面上大文子提示'欢迎你,XXX',XXX的内容为用户名-->
+	    
+		
+			用户名:<input type="text" name="inp1" id="inp1" value="" />
+			密码:<input type="text" name="inp2" id="inp2" value="" />
+			<button id="b">登录</button>
+		<!--<button id="b">登录</button>-->
+		<script type="text/javascript">
+			var inp1 = document .getElementById('inp1')
+			var inp2 = document .getElementById('inp2')
+			var b = document .getElementById('b')
+			b.onclick = function(){
+				if (inp2.value!='123') {
+					alert('登录失败')
+			    } else{
+				location.href = '1.html'
+			}
+			}
+			
+			
+		</script>
+	</body>
+</html>

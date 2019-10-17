@@ -1,0 +1,162 @@
+## 第八章  BOM 浏览器对象模型
+######### 8.1 BOM简介
+  8.1.1 概述
+           浏览器对象模型,简称BOM.BOM提供了独立于内容而是与浏览器窗口交互的对象.
+    BOM的核心是window对象,与ECMAScript不同的是,BOM针对浏览器,鉴于市面上的浏览器多样性,
+           因此,会影响BOM的兼容性.
+        
+  8.1.2 主流浏览器
+           浏览器因为它的多厂商,导致兼容性问题是不容忽视的,主流浏览器中各个版本的兼容性也不尽相同,因此,在BOM中
+           运用时可能会出现结果不同或毫无结果的情况
+
+######### 8.2 window对象
+  8.2.1  window对象的概念
+    window对象时BOM的核心对象,它除了可以使用全局对象的属和方法之外,还可以执行浏览器的一些方法.
+    
+  8.2.2  全局作用域
+           在全局作用域下创建的变量和函数都会成为window的属性和方法
+        var a = 10;
+		console.log(window.a)  //10
+			
+		function b(){
+			return'你好'
+		}
+		console.log(b())  //你好
+			
+		//在全局下window可以省略       
+
+  8.2.3 窗口大小
+    (1)视图的大小
+        //可见内容视口(视图)相当于document.body的高度和宽度
+		var w = document.body.clientWidth
+		var h = document.body.clientHeight
+		console.log(w)
+		console.log(h)
+		
+    (2)视口大小
+                      浏览器的视口大小是包含左侧和下方的滚动条的,
+        //浏览器展现区域的宽高,包含滚动条所占区域
+		var ww = window.innerWidth
+		var wh = window.innerHeight
+		console.log(ww)
+		console.log(wh)
+
+    (3)浏览器窗口大小
+        //整个浏览器在显示器屏的所占有的宽度和高度,包含所有
+		var ow = window.outerWidth
+		var oh = window.outerHeight
+		console.log(ow)
+		console.log(oh)
+    
+    
+    
+### 8.2.3 窗口位置 
+           浏览器左边界和上边界到操作系统桌面左上角的水平和垂直距离
+        window.screenX   window.screenY    
+
+### 8.2.4  open 
+    window.open('需要打开的地址','窗口打开方式'),这是一个简单的open参数,还可以增加其他内容,
+          使用open打开的页面,基本上都可以用close关闭,但open和close有兼容性问题
+    document.getElementById('a').onclick = function(){
+		window.open('视图的大小.html','_self')
+		//_sefl当前窗口打开
+		//_blank  新窗口打开(默认)
+	}
+
+### 8.2.5  弹出框
+    alert('提示弹出框')  //字符串
+	confirm('弹出选择框')   //返回值是true/false
+	prompt('弹出输入框')   //返回值是字符串内容
+
+### 8.2.6 超时调用(一次性定时器)
+    setTimeout(回调函数,时间)也叫一次性定时器,创建这个定时器之后会在一定时间中调用函数,
+       执行函数中的脚本.
+		setTimeout(function(){},2000)
+		  
+		  清除定时器：clearInterval(timer)
+		  
+### 8.2.7 间歇调用(循环定时器)	
+    setInterval(回调函数,时间)也叫循环定时器,创建这个定时器之后会每隔一段时间触发,触发的时间间隔就是参数中的时间,
+       当时间低于10毫秒时,默认为10毫秒
+		setInterval(function(){},1000)
+         注意:循环定时器存在bug,执行时间大于等待时间将会出现任务堆叠,一般情况下,使用setTimeout代替
+         
+### 8.2.8  递归
+    //			递归调用
+      function times(){
+        //执行代码
+        console.log('执行代码段 ')
+        setTimeout(function(){
+          times();
+          },1000)
+         }
+            
+     //调用       
+      times()
+
+
+
+######### 8.3 location对象
+### 8.3.1 location对象的概念
+    window的location对象用于获取当前页面的地址(URL),并把浏览器重新定向到新的页面,在编写时可以不加window前缀
+    
+### 8.3.2  查看location对象的属性
+     console.log(location)
+      href:返回当前完整的URL地址
+      host:返回的是服务器名称和端口
+      port:返回端口号
+      pathname:返回的是目录和文件名
+      search:返回的是参数,也就是?后面的内容
+      protocol:返回使用页面的协议,如:http/https
+      
+######### 8.4 navigator对象        
+### 8.4.1 概念
+    window的navgator对象包含关于浏览器的信息,在编辑的时候不能使用window前缀,可直接使用navgator,
+        该对象代表浏览器本身的名称,版本,系统等信息,但存在兼容性,请慎用
+       
+### 8.4.2 属性介绍
+    console.log(navigator)
+       navigator.appName:浏览器名称
+       navigator.appvEersion:浏览器的版本
+       navigator.userAgent:判断浏览器
+      鉴于兼容问题,在固定浏览器的特定版本进行自主寻找
+    
+### 8.4.3 判断浏览器类型
+    if(navigator.userAgent.indexOf('MSIE')!=-1){
+				console.log('IE浏览器')
+			}else{
+				console.log('非IE浏览器')
+			}
+
+######### 8.5 screen 对象
+### 8.5.1 概念
+     screen对象表示一个屏幕的窗口,他会随着浏览器的不同,窗口大小的位置不同返回不同的值,
+          前提是返回的是当前打开窗口的内容
+          
+### 8.5.2 属性
+      console.log(screen)
+      
+      
+######### 8.6 history 对象
+### 8.6.1 概念        
+      history对象保存着从窗口被打开的历史记录,每个浏览器窗口,标签页,框架都有自己的history对象,
+            为了保护隐私,对js访问该对象做出了一部分限制
+            
+### 8.6.2 常用的方法
+    history.go(n)  整数   0代表刷新  ,正数代表向前跳 ,n步 ;负数代表向后跳n步
+    history.back(n)代表向后跳n步.
+
+  练习:1.实现不同终端的跳转  
+      2.页面宽度低于414px(分辨率)的时候默认为手机端
+      3.如果是手机端就打开京东的移动页面  
+      4,如果判断pc端就打开京东的pc端界面
+      5.移动端:http://m.jd.com
+        pc端路径:http://www.jd.com
+  
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var a = '今天星期二'
+			         //0 1 2 3 4
+			var num = -1
+            var timer = setInterval(function(){
+				num++
+	            if(num<a.length){
+					document.body.innerHTML = a[num]
+	            }else{
+	            	document.body.innerHTML = a[a.length-1]
+	            }
+				
+			},1000)
+		</script>
+	</body>
+</html>

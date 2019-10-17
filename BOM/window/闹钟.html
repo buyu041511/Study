@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#a{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!--5.16-->
+		<div id="mydiv">
+		   	
+		</div>
+		<div id="a">
+			<img src="闹钟.jpg"/>
+		</div>
+		<script type="text/javascript">
+			var a = document.getElementById('a')
+			var h = 17
+			var m = 00
+			var s = 00
+			
+			timer=setInterval(function(){
+			 s++
+			 if (s>60) {
+			 	m+=1
+			 	s=0
+			 	if (m=1) {
+				a.style.display = 'block'
+			}
+			 }else{
+			 	mydiv.innerHTML = h+'时' + m+'分' + s+'秒'
+			 }
+			},1000);
+			
+//			对s进行判断,s>60,对m+1 
+//			s--1s+1
+//			对m判断 , m = 18时,闹钟出现
+			
+		</script>
+	</body>
+</html>

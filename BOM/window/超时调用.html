@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//  setTimeout(回调函数,时间)
+			setTimeout(function(){
+				alert('你好,欢迎光临')
+			},1000)
+			
+//			递归调用
+            function times(){
+            	//执行代码
+            	console.log('执行代码段 ')
+            	setTimeout(function(){
+            		times();
+            	},1000)
+            }
+            
+            //调用
+            times()
+		</script>
+	</body>
+</html>
