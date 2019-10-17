@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div">23</div>
+    <script>
+     var div=document.getElementById("div")
+     //console.log(div.tagName)
+     //方法一:
+     //哪些标签是加粗的 h1~h6 ,b ,strong
+     //H1||H2||H3||H4||H5||H6||B||STRONG
+     if(div.tagName=="DIV"||div.tagName=="H1"||div.tagName=="H2"||div.tagName=="H3"||div.tagName=="H4"||div.tagName=="H5"||div.tagName=="H6"){
+         div.style.fontweight=400;
+     }
+    console.log(div.tagName)
+     //方法二:
+     //不管是不是粗体,统一变为正常
+     div.style.fontweight=400;
+
+     //方法三:
+     var arr=['H1','H2','H3','H4','H5','H6','B','STRONG','DIV'];
+     var isTure =arr.indexOf(div.tagName)
+     // 查找内容不在数组里,返回值为 -1;
+      if(isTure != -1){
+          div.style.fontweight =200;
+          div.style.color ='red';
+      }
+     
+    </script>
+</body>
+</html>

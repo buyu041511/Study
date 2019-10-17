@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+        border-radius: 50%;
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <div style="background-color: brown;"></div>
+    <script>
+    var div = document.getElementsByTagName('div')
+    //js拿到的都是内联样式
+    console.log(div[0].style.backgroundColor)
+    div[0].style.backgroundColor='blue'
+    </script>
+</body>
+</html>

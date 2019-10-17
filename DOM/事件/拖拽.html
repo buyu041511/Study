@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+           margin: 0;
+           padding: 0;
+
+        }
+
+        body{
+         position: relative;
+        }
+
+    #mydiv{
+    width: 100px;
+    height: 100px;
+    background-color:red; 
+    position: absolute;
+
+    }
+    </style>
+</head>
+<body>
+   <div id="mydiv"></div>
+    
+
+    <script>
+  var mydiv = document.getElementById('mydiv')
+   mydiv.onmousedown= function(e){
+    var ev = e || window.event;
+     var xcha = ev.clientX-mydiv.offsetLeft//获取鼠标点击的坐标
+     var ycha = ev.clientY-mydiv.offsetTop
+     document.onmousemove = function(e){
+      var ev = e || window.event;
+     mydiv.style.left = ev.clientX-xcha +'px'//计算鼠标点击的原点
+     mydiv.style.top = ev.clientY-ycha +'px'
+   
+     }
+     document.onmouseup = function(){//清空累加效果
+        document.onmousemove = null;//清空移动效果
+        document.onmouseup = null;
+     }
+    //取消冒泡
+    return false;
+   }
+    </script>
+</body>
+</html>

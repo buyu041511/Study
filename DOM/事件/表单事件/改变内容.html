@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="in1" id="in1" value="" />
+		<script >
+			var in1 = document.getElementById('in1')
+//			
+			in1.onchange = function(){
+				in1.style.backgroundColor = 'yellow'
+			}
+//			改变内容
+			in1.oninput = function(){
+				in1.style.backgroundColor = 'red'
+			}
+		</script>
+		
+	</body>
+</html>

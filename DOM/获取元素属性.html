@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mydiv" class="box" zhang-hao='yes'好的></div>
+    <a href="http://www.baidu.com">百度一下</a>
+
+    <script>
+    var div = document.getElementById('mydiv')
+    var a = document.getElementsByTagName('a')
+
+    console.log(div.getAttribute('id'))
+    console.log(div.getAttribute('class'))
+    console.log(div.getAttribute('zhang-hao'))
+    console.log(a[0].getAttribute('href'))  //因为 a变量获取的是一个列表.要用下标查找
+    
+    
+
+    </script>
+</body>
+</html>
